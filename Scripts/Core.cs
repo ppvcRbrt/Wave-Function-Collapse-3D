@@ -88,7 +88,6 @@ public class Core : MonoBehaviour
             terminate = false;
         }
 
-        //File.WriteAllLines("C:\\Users\\Robert\\Desktop\\Tests\\"+ testName +".csv", performanceTests.Select(s => s.ToString()));
         writeToFile();
     }
 
@@ -116,51 +115,7 @@ public class Core : MonoBehaviour
         {
             generator.drawAllPatterns(patternStrategy.patterns, patternsParent, folderName, patternSize);
         }
-        /*
-        double startTime = Time.realtimeSinceStartup;
-        
-        
-        
-        patternStrategy.initPatternRecognition(rootObject, allowEmptyPatterns, patternSize);
-        patternStrategy.patternRec.allowReflections = allowReflections;
-        patternStrategy.patternRec.allowRotations = allowRotations;
-        
-        compatibilityIndex = patternStrategy.extractPatternsCompat(patternSize); //extracting the compatibility data structure
-        Debug.Log("Compatible patterns extracted");
-
-        patterns = patternStrategy.patterns.Select(x => x.Key).ToArray(); // for adding all the patterns in the available cells
-         
-        state = new bool[size, height, size];
-        entropies = new float[size, height, size];
-        initCompatible();
-        Debug.Log("Initialized matrices");
-
-        patternFrequency = patternStrategy.getRelativeFrequency();
-        Debug.Log("Initialized frequency of patterns");
-
-        patternsCompatibility = patternStrategy.compatiblePatterns;
-
-
-        initializeCellsEntropy();
-        Debug.Log("Initialized entropies");
-
-
-        run(maxIterations);
-        Debug.Log("Finished Running, drawing model");
-        
-        double endTime = Time.realtimeSinceStartup - startTime;
-        Debug.Log("Algorithm finished building in : " + endTime);
-
-        
-        Generator generator = new Generator(rootObject, allowEmptyPatterns, patternSize);
-        generator.drawModel(compatible, patternStrategy.patterns, outputObj.transform, size, height, patternSize, folderName);
-        
-
-        outputObj.transform.position += new Vector3(15, 0, 0);
-        generator.drawAllPatterns(patternStrategy.patterns, patternsParent, folderName);
-        patternsParent.transform.position -= new Vector3(50, 0, 0);
-        */
-        int i = 0;
+        //int i = 0;
     }
 
     //will check if any of the cells in the data array are empty
@@ -237,7 +192,7 @@ public class Core : MonoBehaviour
         }
     }
 
-    //checks how many patterns are in each cell and calculates their entropy [USE calculateEntropyV2 THIS IS DEPRECATED]  
+    //checks how many patterns are in each cell and calculates their entropy  
     public void updateCellEntropy(Vector3Int cellPosition)
     {
         double entropy = 0;
@@ -335,7 +290,7 @@ public class Core : MonoBehaviour
     //will collapse a cell to one pattern given the cells position
     public void observeCell(Vector3Int cellPosition)
     {
-        //Random choice of pattern might not be good, let's try choosing by frequency
+        //Random choice of pattern might not be good
         if (!highestFreqPattern)
         {
             int chosenPatternIndex = UnityEngine.Random.Range(0, compatible[cellPosition.x, cellPosition.y, cellPosition.z].Length - 1);
@@ -348,8 +303,6 @@ public class Core : MonoBehaviour
             int[] chosenPattern = { choosePatternHighFreq(cellPosition) };
             compatible[cellPosition.x, cellPosition.y, cellPosition.z] = chosenPattern;
         }
-        //Generator generator = new Generator(rootObject);
-        //generator.visualizeCurrentTilePlacement(new Vector3Int(cellPosition.x, cellPosition.y, cellPosition.z), patternStrategy.patterns ,outputObj, patternSize, chosenPattern[0]);
         banCell(cellPosition);
     }
 
@@ -371,7 +324,7 @@ public class Core : MonoBehaviour
         return chosenPattern;
     }
 
-    //will set the state of the cell as true, meaning that it is fully collapsed and enqueues it into our propagation queue 
+    //will set the state of the cell as true, meaning that it is fully collapsed(contains 1 pattern only) and enqueues it into our propagation queue 
     public void banCell(Vector3Int cellPosition)
     {
         state[cellPosition.x, cellPosition.y, cellPosition.z] = true;
