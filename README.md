@@ -11,7 +11,7 @@ The current implementation does come
 with some caveats. As it currently stands, the height of output model cannot be
 changed, it is very dependent on the input data given, and it
 cannot create structures that are meant to be logically connected (eg. a road
-network) as the solution implements the overlapping model for finding constraints.
+network) as the solution implements the overlapping model for finding constraints only (this can be extended to different constraint-finding models).
 
 
 ## Results
