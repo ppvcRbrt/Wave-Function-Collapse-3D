@@ -13,7 +13,6 @@ changed, it is very dependent on the input data given, and it
 cannot create structures that are meant to be logically connected (eg. a road
 network) as the solution implements the overlapping model for finding constraints only (this can be extended to different constraint-finding models).
 
-
 ## Results
 Below you can see some of the outputs of the algorithm given an input model.
 
@@ -38,6 +37,9 @@ Below you can see some of the outputs of the algorithm given an input model.
 - **Output Grid** : 3D grid of arrays. When initialized, it starts with all the patterns available included in each array at each location in the grid.
 - **Observation** : The act of removing all patterns bar one from the array contained at a specific location in the output grid.
 - **Propagation** : Communication of the removal of one of the patterns throughout the whole grid which can result in further removals. This process continues until there are no more reductions to be made or a location within the output grid contains no patterns
+
+## Usage
+
 
 ## Solution Flowchart
 ![image](https://user-images.githubusercontent.com/73713049/170090681-ff7e8935-510f-4f5a-99e6-fad19120c1fc.png)
