@@ -42,7 +42,7 @@ Below you can see some of the outputs of the algorithm given an input model.
 When bringing the project into Unity, there are some prerequisites that are needed before any procedural generation can be done;
 - A folder named "Resources" needs to exists in the Unity's assets folder, this is where the models used for procedural generation are stored.
 - In the scene, there needs to exist an empty gameobject specifically named "root". This will be where the input model is stored.
-- The root object must have the "Core.cs" script as a component. The file contains all the options for the procedural generation.
+- The root object must have the "Core.cs" script as a component. The script contains all the options for the procedural generation.
 - The root object can have the "DrawingArea.cs" script. This script helps the user draw only on the positive x and z axes.
 - In the scene, there needs to exist an empty gameobject that will contain the drawn output.
 - In the scene, you can include an empty gameobject for the drawing of the patterns, this is an optional step.
