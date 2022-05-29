@@ -36,9 +36,29 @@ Below you can see some of the outputs of the algorithm given an input model.
 - **Pattern** &emsp; &emsp;: A 3D "slice" of the input in the form of an array containing discrete indices representing some of the tiles.  
 - **Output Grid** : 3D grid of arrays. When initialized, it starts with all the patterns available included in each array at each location in the grid.
 - **Observation** : The act of removing all patterns bar one from the array contained at a specific location in the output grid.
-- **Propagation** : Communication of the removal of one of the patterns throughout the whole grid which can result in further removals. This process continues until there are no more reductions to be made or a location within the output grid contains no patterns
+- **Propagation** : Communication of the removal of one of the patterns throughout the whole grid which can result in further removals. This process continues until there are no more reductions to be made or a location within the output grid contains no patterns.
+
+## Setup
+When bringing the project into Unity, there are some prerequisites that are needed before any procedural generation can be done;
+- A folder named "Resources" needs to exists in the Unity's assets folder, this is where the models used for procedural generation are stored.
+- In the scene, there needs to exist an empty gameobject specifically named "root". This will be where the input model is stored.
+- The root object must have the "Core.cs" script as a component. The file contains all the options for the procedural generation.
+- The root object can have the "DrawingArea.cs" script. This script helps the user draw only on the positive x and z axes.
+- In the scene, there needs to exist an empty gameobject that will contain the drawn output.
+- In the scene, you can include an empty gameobject for the drawing of the patterns, this is an optional step.
+- Unity's 2D Tilemap Editor[1.0.0]
+- Unity's 2D Tilemap Extras[2.0.0]
 
 ## Usage
+### Drawing Input
+To draw an input, Unity's Tilemap Editor was used in conjuction with the GameObject Brush.
+After all the prerequisites have been met, navigate to Window > TilePlacer. From there There are 2 main options;
+- **Tile Levels** : Refers to the height of the model.
+- **Cell Size** : Refers to the width of a single cell in the Tilemap.
+After filling in the two options, you can either create all the levels specified by pressing "Create Tile Levels" or you can choose to add a single level with the cell size specified. This will populate the "root" object created with empty Tilemaps.
+<img src="https://user-images.githubusercontent.com/73713049/170870639-123509c9-3e7d-41ee-8796-6ba3e0cdf267.png" style="position:relative;">
+
+
 
 
 ## Solution Flowchart
