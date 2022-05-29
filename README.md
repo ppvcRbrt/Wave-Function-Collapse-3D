@@ -100,3 +100,23 @@ Each pattern's edge is compared to another pattern's opposite edge. If they over
 
 ##### Core Algorithm
 The final phase of the solution is taking all the patterns and assigning them to every position in the output grid, the entropy of each cell is then calculated and stored. A cell is then observed which causes the solver to start propagating. This removes patterns that violate the constraints found in the last phase. Once all the patterns conform to the constraints, the entropy of the cells is recalculated and the lowest entropy cell is chosen for observation. This cycle continues until all cells contain only one pattern or until a cell contains 0 patterns in which case the process restarts with a fresh output grid.
+
+## References
+- Togelius, J., Kastbjerg, E., Schedl. D., & Yannakakis, G., N. (2011). What is Procedural Content Generation? Mario on the borderline.[Conference Paper]. The 2010 Mario AI Championship: Level Generation Track. https://doi.org/10.1145/2000919.2000922
+
+- Togelius, J., Shaker, N., Nelson, M.J. (2016), Introduction. In Togelius, J., Shaker, N., Nelson, M.J.(Eds.) Procedural Content Generation in Games(pp. 1-14). Springer. https://doi.org/10.1007/978-3-319-42716-4
+
+- Efros, A., & Leung, T.K. (1999). Texture Synthesis by Non-parametric Sampling[Conference Paper]. IEEE International Conference on Computer Vision, Corfu, Greece. https://doi.org/10.1109/ICCV.1999.790383
+
+- Harrison, P. (2005). Image Texture Tools: Texture Synthesis, Texture Transfer, and Plausible Restoration [Doctoral Dissertation, Monash University]. https://logarithmic.net/pfhfiles/thesis/dissertation.pdf
+
+- Merrell, P.C. (2009). Model Synthesis [Doctoral Dissertation, University of North Carolina]. https://paulmerrell.org/thesis.pdf
+
+- Gumin, M. (2016). Wave Function Collapse Algorithm (Version 1.0) [Computer software]. https://github.com/mxgmn/WaveFunctionCollapse
+
+- Karth, I, & Smith, A M. (2021). WaveFunctionCollapse: Content Generation via Constraint Solving and Machine Learning[Conference Paper]. IEEE Transactions on Games.
+https://doi.org/10.1109/TG.2021.3076368
+
+- Sunny Valley Studio. (2019). Wave Function Collapse Unity Tilemap Tutorial (Version 1.0) [Computer software].
+https://github.com/SunnyValleyStudio/WaveFunctionCollapseUnityTilemapTutorial
+
